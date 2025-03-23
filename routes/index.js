@@ -16,6 +16,7 @@ const dashboardRoutes = require("./dashboardRoutes");
 // const couponRoutes = require("./couponRoutes");
 // const paymentHistory = require("./paymentHistoryRoutes");
 const messOwners = require("./messOwers");
+const messRoutes = require("./messRoutes");
 
 // Define API routes for toys and rentals
 // router.use('/toys', toyRoutes);
@@ -32,5 +33,6 @@ router.use("/dashboard",dashboardRoutes);
 // router.use("/coupons",couponRoutes);
 // router.use("/payment", paymentHistory);
 router.use("/mess-owners", messOwners);
+router.use("/mess", messRoutes);
 
 module.exports = router;
