@@ -4,7 +4,7 @@ const customerController = require("../controllers/customerController");
 const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Define login route for customers
-router.post("/login", jwtAuthMiddleware, customerController.loginCustomer);
+router.post("/login", customerController.loginCustomer);
 
 //get customer by id
 router.get("/:id", jwtAuthMiddleware, customerController.customerDetailsById);
