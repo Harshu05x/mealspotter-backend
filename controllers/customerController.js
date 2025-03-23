@@ -16,18 +16,19 @@ const { default: mongoose } = require("mongoose");
 class CustomerController {
   async loginCustomer(req, res) {
     try {
-      const { email, password } = req.body;
+      const { email, password, fname, lname, clerkId } = req.body;
 
       // Find the customer by email
-      const customer = await Customer.findOne({ email });
+      const customer = await Customer.findOne({ email, clerkId });
 
       if (!customer) {
-        const newCustomer = new Customer({ email, password });
+        const hash_pass = bcrypt.hashSync(password, 10);
+        const newCustomer = new Customer({ email, password: hash_pass, fname, lname, clerkId });
         await newCustomer.save();
         return res.status(200).json({ message: "Customer logged in successfully", customer: newCustomer });
       }
 
-      // // Verify the password
+      // Verify the password
       // const passwordMatch = await bcrypt.compare(password, customer.password);
 
       // if (!passwordMatch) {

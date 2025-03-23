@@ -1,6 +1,11 @@
 // models/customerModel.js
 const mongoose = require("mongoose");
 const customerSchema = new mongoose.Schema({
+  clerkId: {
+    type: String,
+    required: false,
+    unique: true
+  },
   fname: {
     type: String,
     required: false,
