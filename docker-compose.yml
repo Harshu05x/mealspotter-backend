@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mealspotterweb:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/code
+    container_name: MealspotterBackend
+    environment:
+      MONGODB_URI: mongodb://host.docker.internal:27017/mealspotter
+    expose:
+      - 4000
+    ports:
+      - 4000:4000
+    command: npm run dev

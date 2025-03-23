@@ -1,0 +1,71 @@
+{
+    "info": {
+      "name": "API Collection",
+      "_postman_id": "unique-collection-id",
+      "description": "Your API collection description",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Toys",
+        "item": [
+          {
+            "name": "Get All Toys",
+            "request": {
+              "url": {
+                "raw": "http://localhost:3000/api/toys",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "toys"]
+              },
+              "method": "GET"
+            }
+          },
+          {
+            "name": "Create Toy",
+            "request": {
+              "url": {
+                "raw": "http://localhost:3000/api/toys",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "toys"]
+              },
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Toy 1\",\n  \"description\": \"Description\",\n  \"brand\": \"Brand\",\n  \"mrp\": 10.0,\n  \"purchase\": 5.0\n}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Categories",
+        "item": [
+          {
+            "name": "Get All Categories",
+            "request": {
+              "url": {
+                "raw": "http://localhost:3000/api/categories",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "3000",
+                "path": ["api", "categories"]
+              },
+              "method": "GET"
+            }
+          }
+        ]
+      }
+      
+    ]
+  }
+  
