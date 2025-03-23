@@ -21,7 +21,7 @@ const messRoutes = require("./messRoutes");
 // Define API routes for toys and rentals
 // router.use('/toys', toyRoutes);
 // router.use('/rentals', rentalRoutes);
-// router.use('/customers', customerRoutes);
+router.use('/customers', customerRoutes);
 router.use('/users', userRoutes);
 // router.use('/categories', categoryRoutes);
 // router.use("/cities", cityRouters);
