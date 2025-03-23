@@ -21,27 +21,19 @@ class CustomerController {
       // Find the customer by email
       const customer = await Customer.findOne({ email });
 
-      // Check if the customer exists
       if (!customer) {
-        return res.status(401).json({ error: "Invalid credentials" });
+        const newCustomer = new Customer({ email, password });
+        await newCustomer.save();
+        return res.status(200).json({ message: "Customer logged in successfully", customer: newCustomer });
       }
 
-      // Verify the password
-      const passwordMatch = await bcrypt.compare(password, customer.password);
+      // // Verify the password
+      // const passwordMatch = await bcrypt.compare(password, customer.password);
 
-      if (!passwordMatch) {
-        return res.status(401).json({ error: "Invalid credentials" });
-      }
-
-      // Customer is authenticated, generate a JWT token
-      const token = jwt.sign(
-        { customerId: customer._id, email: customer.email },
-        process.env.JWT_SECRET, // Replace with your secret key
-        { expiresIn: "1h" } // Set token expiration as needed
-      );
-
-      // Send the token in the response
-      res.json({ token });
+      // if (!passwordMatch) {
+      //   return res.status(401).json({ error: "Invalid credentials" });
+      // 
+      res.status(200).json({ message: "Customer logged in successfully", customer: customer });
     } catch (err) {
       res.status(500).json({ error: "Server error" });
     }
