@@ -4,7 +4,7 @@ const router = express.Router();
 
 // const toyRoutes = require('./toyRoutes'); // Import toy routes
 // const rentalRoutes = require('./rentalRoutes'); // Import rental routes
-// const customerRoutes = require('./customerRoutes');
+const customerRoutes = require('./customerRoutes');
 const userRoutes = require('./userRoutes');
 // const categoryRoutes = require('./categoryRoutes');
 // const cityRouters = require("./cityRoutes")
