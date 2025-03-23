@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 const pickUpPointController = require("../controllers/pickUpPointController");
 
 // Get all created pickUpPoint (protected with JWT auth)

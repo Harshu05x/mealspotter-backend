@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const categoryController = require("../controllers/categoryController");
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Get all categories (protected with JWT auth)
 router.get("/", jwtAuthMiddleware, categoryController.getAllCategories);

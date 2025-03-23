@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const toyController = require("../controllers/toyController");
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 const multer  = require('multer');
 const path = require("path");
 const AWS = require("aws-sdk");

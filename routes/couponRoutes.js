@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const couponController = require("../controllers/couponController")
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Get all createdCity (protected with JWT auth)
 router.get("/", jwtAuthMiddleware, couponController.getAllCoupons);

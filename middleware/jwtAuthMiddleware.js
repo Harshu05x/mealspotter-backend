@@ -28,7 +28,7 @@ const jwtAuthMiddleware = async (req, res, next) => {
       _id: decodedToken.userId,
       email: decodedToken.email,
     });
-    if(!user || user?.usertype !== decodedToken?.usertype || user?.usertype !== 'admin') {
+    if(!user) {
       return res.status(401).json({ message: "Unauthorized" });
     }
     req.user = decodedToken;
@@ -40,4 +40,18 @@ const jwtAuthMiddleware = async (req, res, next) => {
   next();
 };
 
-module.exports = jwtAuthMiddleware;
+const adminMiddleware = async (req, res, next) => {
+  if(req.user?.usertype !== 'admin') {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  next();
+}
+
+const messOwnerMiddleware = async (req, res, next) => {
+  if(req.user?.usertype !== 'mess') {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  next();
+}
+
+module.exports = { jwtAuthMiddleware, adminMiddleware, messOwnerMiddleware };

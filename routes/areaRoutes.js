@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const areaController = require("../controllers/areaController");
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Get all created_area (protected with JWT auth)
 router.get("/", jwtAuthMiddleware, areaController.getAllArea);

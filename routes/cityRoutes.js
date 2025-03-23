@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cityController = require("../controllers/cityController");
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Get all createdCity (protected with JWT auth)
 router.get("/", jwtAuthMiddleware, cityController.getAllCity);

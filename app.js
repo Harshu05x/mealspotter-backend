@@ -24,16 +24,8 @@ const corsOptions = {
   credentials: true,
 }
 
-app.use(express.json());
-app.use(cors(corsOptions));
-
-
-// Use the combined routes under the '/api' path
-app.use('/api', routes);
-
 // add middleware for printing the request body
 app.use((req, res, next) => {
-  // print the request body, token (Bearer token), and route
   // 1. token
   const token = req.headers.authorization;
   console.log("--------------------------------");
@@ -45,6 +37,13 @@ app.use((req, res, next) => {
   console.log("-------------------------------- \n");
   next();
 });
+
+app.use(express.json());
+app.use(cors(corsOptions));
+
+
+// Use the combined routes under the '/api' path
+app.use('/api', routes);
 
 
 Sentry.setupExpressErrorHandler(app);

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const customerController = require("../controllers/customerController");
-const jwtAuthMiddleware = require("../middleware/jwtAuthMiddleware");
+const { jwtAuthMiddleware } = require("../middleware/jwtAuthMiddleware");
 
 // Define login route for customers
 router.post("/login", jwtAuthMiddleware, customerController.loginCustomer);
